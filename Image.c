@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <time.h>
 
 /* Creates a new image and returns it.
 *
@@ -85,12 +87,16 @@ void image_apply_colorshift(Image* img, int rShift, int gShift, int bShift) {
     for (int i = 0; i < img->height; i++) {
         for (int j = 0; j < img->width; j++) {
             struct Pixel pixel = img->pArr[i][j];
+
             int red = pixel.red + rShift;
-            int green = pixel.green + gShift;
             int blue = pixel.blue + bShift;
+            int green = pixel.green + gShift;
+
+
             img->pArr[i][j].red = (red > 255? 255 : (red < 0 ? 0 : red));
-            img->pArr[i][j].green = (green > 255? 255 : (green < 0 ? 0 : green));
             img->pArr[i][j].blue = (blue > 255? 255 : (blue < 0 ? 0 : blue));
+            img->pArr[i][j].green = (green > 255? 255 : (green < 0 ? 0 : green));
+
         }
     }
 }

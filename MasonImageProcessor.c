@@ -125,7 +125,7 @@ int main(int argc, char *argv[]) {
         }
 
         
-        image_destroy(img);
+        image_destroy(&img);
     }
 
     return 0;

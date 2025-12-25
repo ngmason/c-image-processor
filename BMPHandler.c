@@ -138,11 +138,11 @@ void readPixelsBMP(FILE* file, struct Pixel** pArr, int width, int height) {
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            unsigned char rgb[3];
-            fread(rgb, sizeof(unsigned char), 3, file);
-            pArr[i][j].red = rgb[0];
-            pArr[i][j].green = rgb[1];
-            pArr[i][j].blue = rgb[2];
+            unsigned char rbg[3];
+            fread(rbg, sizeof(unsigned char), 3, file);
+            pArr[i][j].red = rbg[0];
+            pArr[i][j].blue = rbg[1];
+            pArr[i][j].green= rbg[2];
         }
         fseek(file, paddingSize, SEEK_CUR);
     }
@@ -163,11 +163,11 @@ void writePixelsBMP(FILE* file, struct Pixel** pArr, int width, int height) {
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            unsigned char rgb[3];
-            rgb[0] = (unsigned char)pArr[i][j].red;
-            rgb[1] = (unsigned char)pArr[i][j].green;
-            rgb[2] = (unsigned char)pArr[i][j].blue;
-            fwrite(rgb, sizeof(unsigned char), 3, file);
+            unsigned char rbg[3];
+            rbg[0] = (unsigned char)pArr[i][j].red;
+            rbg[1] = (unsigned char)pArr[i][j].blue;
+            rbg[2] = (unsigned char)pArr[i][j].green;
+            fwrite(rbg, sizeof(unsigned char), 3, file);
         }
         fwrite(padding, sizeof(unsigned char), paddingSize, file);
     }

@@ -22,8 +22,8 @@ struct Image {
 };
 struct Pixel{
     int red;
-    int green;
     int blue;
+    int green;
 };
 ////////////////////////////////////////////////////////////////////////////////
 //Function Declarations
@@ -72,11 +72,23 @@ height.
 */
 void image_apply_colorshift(Image* img, int rShift, int gShift, int bShift);
 /* Converts the image to grayscale. If the scaling factor is less than 1 the new
-image will be
+* image will be
 * smaller, if it is larger than 1, the new image will be larger.
 *
 * @param img: the image.
 * @param factor: the scaling factor
 */
 void image_apply_resize(Image* img, float factor);
+
+/**
+ * This filter when applied to bmp image blurs the image.
+ * @param img: the image.
+ */
+//void box_blur_filter(Image* img);
+/**
+ * This filter tints the image yellow.
+ * @param img: the image.
+ */
+//void applyYellowTint(Image* img);
+//void swiss_cheese_filter(Image* img);
 #endif
