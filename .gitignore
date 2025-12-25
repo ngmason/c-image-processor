@@ -1,0 +1,10 @@
+# Compiled binaries
+*.o
+*.out
+image_processor
+
+# Generated images
+output*.bmp
+
+# OS junk
+.DS_Store
